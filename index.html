@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yggdrasil-novanet · Yggdrasil Mesh for NovaNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        :root {
+            --primary: #0ea5e9;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .mesh-bg {
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)),
+                url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%230e7490%22 fill-opacity=%22008%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
+            background-size: 60px 60px;
+        }
+
+        .nav-link {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #0ea5e9;
+            transform: translateY(-1px);
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .card {
+            transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .mesh-node {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+    <!-- Navbar -->
+    <nav class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-lg sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-sky-500 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-network-wired text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-2xl font-semibold tracking-tighter">yggdrasil-novanet</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-x-8 text-sm">
+                    <a href="#about" class="nav-link text-slate-300 hover:text-white">About</a>
+                    <a href="#docs" class="nav-link text-slate-300 hover:text-white">Documentation</a>
+                    <a href="#roadmap" class="nav-link text-slate-300 hover:text-white">Roadmap</a>
+                    <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet" target="_blank" 
+                       class="flex items-center gap-x-2 px-4 py-2 rounded-2xl bg-white/5 hover:bg-white/10 text-sm font-medium transition-colors">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mesh-bg border-b border-slate-800">
+        <div class="max-w-screen-xl mx-auto px-6 pt-20 pb-24">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-sky-500/10 text-sky-400 text-sm font-medium mb-6">
+                    <div class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></div>
+                    Active Research Project
+                </div>
+                
+                <h1 class="font-display text-7xl tracking-tighter font-semibold leading-none mb-4">
+                    Yggdrasil Mesh.<br>
+                    <span class="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">NovaNet Foundation.</span>
+                </h1>
+                
+                <p class="max-w-lg text-xl text-slate-400 mb-8">
+                    Exploring Yggdrasil as a self-organizing, end-to-end encrypted IPv6 mesh networking layer 
+                    for large-scale decentralized systems — NovaNet, xMesh, QNET, blockchain, and AI agent swarms.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#docs" 
+                       class="inline-flex items-center justify-center px-8 py-4 rounded-3xl bg-white text-slate-950 font-semibold hover:bg-slate-100 transition-all active:scale-[0.985]">
+                        Explore Documentation
+                    </a>
+                    <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet" target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 px-8 py-4 rounded-3xl border border-white/20 hover:bg-white/5 font-medium transition-all">
+                        <i class="fa-brands fa-github text-lg"></i>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-sky-400 mb-3">THE VISION</div>
+                <h2 class="section-header tracking-tighter mb-6">A decentralized mesh foundation<br>for the next generation of networks.</h2>
+                
+                <div class="prose prose-invert text-slate-300 max-w-none">
+                    <p class="text-lg">
+                        Yggdrasil offers a unique combination of <strong>cryptographic identity</strong>, 
+                        <strong>compact routing</strong>, and <strong>self-healing</strong> properties that make it an excellent 
+                        candidate as the networking layer for ambitious decentralized projects.
+                    </p>
+                    <p>
+                        This repository documents research, prototypes, and integration strategies for using 
+                        Yggdrasil as the core connectivity fabric for NovaNet / xMesh / QNET systems.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5 mt-10 md:mt-0">
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <div class="text-sky-400 text-sm font-medium mb-1">CORE TECHNOLOGY</div>
+                            <div class="font-semibold">Yggdrasil v0.5.x</div>
+                        </div>
+                        <div>
+                            <div class="text-sky-400 text-sm font-medium mb-1">FOCUS AREAS</div>
+                            <div class="font-semibold">Mesh + Blockchain + AI Agents</div>
+                        </div>
+                        <div>
+                            <div class="text-sky-400 text-sm font-medium mb-1">ROUTING STYLE</div>
+                            <div class="font-semibold">Compact + Self-healing</div>
+                        </div>
+                        <div>
+                            <div class="text-sky-400 text-sm font-medium mb-1">ENCRYPTION</div>
+                            <div class="font-semibold">End-to-End</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Documentation Section -->
+    <div id="docs" class="bg-slate-900 border-y border-slate-800 py-16">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex items-end justify-between mb-10">
+                <div>
+                    <div class="uppercase tracking-[3px] text-xs font-semibold text-sky-400 mb-2">RESOURCES</div>
+                    <h2 class="section-header tracking-tighter">Documentation</h2>
+                </div>
+                <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet" target="_blank" 
+                   class="hidden md:flex items-center gap-x-2 text-sm font-medium text-sky-400 hover:text-sky-300">
+                    Browse all files <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet/blob/main/roadmap.md" target="_blank"
+                   class="card group block bg-slate-950 border border-slate-800 hover:border-sky-900 rounded-3xl p-7">
+                    <div class="flex items-center gap-x-4 mb-5">
+                        <div class="w-11 h-11 bg-sky-500/10 text-sky-400 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-map text-xl"></i>
+                        </div>
+                        <div class="font-semibold text-xl group-hover:text-sky-400 transition-colors">Roadmap</div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        5-phase plan covering foundation, prototyping, scaling research, higher-layer systems, and community building.
+                    </p>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet/blob/main/docs/getting-started.md" target="_blank"
+                   class="card group block bg-slate-950 border border-slate-800 hover:border-sky-900 rounded-3xl p-7">
+                    <div class="flex items-center gap-x-4 mb-5">
+                        <div class="w-11 h-11 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-play text-xl"></i>
+                        </div>
+                        <div class="font-semibold text-xl group-hover:text-emerald-400 transition-colors">Getting Started</div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Practical guide to installing Yggdrasil, configuration best practices, firewalling, and first experiments.
+                    </p>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet/blob/main/docs/architecture-overview.md" target="_blank"
+                   class="card group block bg-slate-950 border border-slate-800 hover:border-sky-900 rounded-3xl p-7">
+                    <div class="flex items-center gap-x-4 mb-5">
+                        <div class="w-11 h-11 bg-violet-500/10 text-violet-400 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-sitemap text-xl"></i>
+                        </div>
+                        <div class="font-semibold text-xl group-hover:text-violet-400 transition-colors">Architecture</div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        High-level vision of how Yggdrasil fits as the networking foundation for NovaNet and related systems.
+                    </p>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet/blob/main/research/routing/yggdrasil-routing-notes.md" target="_blank"
+                   class="card group block bg-slate-950 border border-slate-800 hover:border-sky-900 rounded-3xl p-7">
+                    <div class="flex items-center gap-x-4 mb-5">
+                        <div class="w-11 h-11 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-book text-xl"></i>
+                        </div>
+                        <div class="font-semibold text-xl group-hover:text-amber-400 transition-colors">Routing Research</div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Deep technical notes on Yggdrasil’s hybrid routing (spanning tree + Bloom filters + greedy), comparisons, and open questions.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap Teaser -->
+    <div id="roadmap" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="max-w-2xl mb-12">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-sky-400 mb-3">DEVELOPMENT PLAN</div>
+            <h2 class="section-header tracking-tighter">Current Focus Areas</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+                <div class="text-emerald-400 font-mono text-xs tracking-widest mb-3">PHASE 1 — ACTIVE</div>
+                <div class="font-semibold text-2xl mb-3">Foundation & Documentation</div>
+                <ul class="text-sm text-slate-400 space-y-2">
+                    <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Repository structure</li>
+                    <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Core documentation</li>
+                    <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-emerald-400 w-4"></i> Routing research notes</li>
+                </ul>
+            </div>
+            
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+                <div class="text-sky-400 font-mono text-xs tracking-widest mb-3">PHASE 2 — NEXT</div>
+                <div class="font-semibold text-2xl mb-3">Prototyping</div>
+                <p class="text-sm text-slate-400">Docker testbeds, subnet advertisement, service discovery patterns, and initial blockchain integration experiments.</p>
+            </div>
+            
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+                <div class="text-slate-400 font-mono text-xs tracking-widest mb-3">PHASE 3+</div>
+                <div class="font-semibold text-2xl mb-3">Scaling & Advanced Use</div>
+                <p class="text-sm text-slate-400">Performance testing, AI agent swarm connectivity, privacy layers, and production deployment patterns.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-12 bg-slate-950">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-sm text-slate-400">
+                <div>
+                    yggdrasil-novanet · Research project exploring decentralized mesh networking
+                </div>
+                <div class="flex items-center gap-x-6">
+                    <a href="https://github.com/digitaldesignerjazz/yggdrasil-novanet" target="_blank" class="hover:text-white transition-colors">GitHub Repository</a>
+                    <a href="https://yggdrasil-network.github.io/" target="_blank" class="hover:text-white transition-colors">Yggdrasil Official</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Tailwind script for future interactivity if needed
+        console.log('%c[yggdrasil-novanet] Single-file site loaded', 'color:#64748b');
+    </script>
+</body>
+</html>
